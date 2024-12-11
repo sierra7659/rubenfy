@@ -3,7 +3,8 @@ import 'package:rubenfy/rating/icon.dart';
 
 class Rating extends StatefulWidget {
   final String text;
-  const Rating({super.key, required this.text});
+  final Function onTap;
+  const Rating({super.key, required this.text, required this.onTap});
 
   @override
   State<Rating> createState() => _RatingState();
@@ -17,6 +18,7 @@ class _RatingState extends State<Rating> {
       for (int i = 0; i < isDisabledList.length; i++) {
         isDisabledList[i] = i >= index;
       }
+      widget.onTap(index);
     });
   }
 
@@ -26,31 +28,34 @@ class _RatingState extends State<Rating> {
       decoration: BoxDecoration(
         color: Colors.white,
       ),
-      child: Column(
-        children: [
-          Text(widget.text, style: const TextStyle(fontSize: 20, color: Colors.black)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(5, (index) {
-              return GestureDetector(
-                onTap: () => updateRating(index + 1),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('${index + 1}', style: const TextStyle(fontSize: 16, color: Colors.black)),
-                      IconRating(
-                        imgSrc: 'images/ru_rated_${index + 1}.png',
-                        isDisabled: isDisabledList[index],
-                      ),
-                    ],
+      child: Padding(
+        padding: const EdgeInsets.only(top: 16.0),
+        child: Column(
+          children: [
+            Text(widget.text, style: const TextStyle(fontSize: 26, color: Colors.black, fontWeight: FontWeight.w600, letterSpacing: 2)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(5, (index) {
+                return GestureDetector(
+                  onTap: () => updateRating(index + 1),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text('${index + 1}', style: const TextStyle(fontSize: 16, color: Colors.black)),
+                        IconRating(
+                          imgSrc: 'images/ru_rated_${index + 1}.png',
+                          isDisabled: isDisabledList[index],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            }),
-          ),
-        ],
+                );
+              }),
+            ),
+          ],
+        ),
       ),
     );
   }
