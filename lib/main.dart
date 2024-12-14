@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:rubenfy/intro/intro.dart';
 import 'package:rubenfy/ratings/provider/rating_provider.dart';
+import 'package:rubenfy/results/results.dart';
 
 import 'firebase_options.dart';
 
@@ -30,13 +31,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Rubenfy',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Intro(),
+        '/results': (context) => const Results(),
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.dark(primary: Colors.white),
         fontFamily: GoogleFonts.vt323().fontFamily,
         useMaterial3: true,
-      ),
-      home: const Intro(),
+      )
     );
   }
 }

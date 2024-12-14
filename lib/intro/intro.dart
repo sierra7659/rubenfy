@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rubenfy/character/character.dart';
 import 'package:rubenfy/comments/comments.dart';
-import 'package:rubenfy/rating/rating.dart';
 import 'package:rubenfy/ratings/provider/rating_provider.dart';
 import 'package:rubenfy/ratings/ratings.dart';
 import 'package:rubenfy/ratings/repository.dart';
+import 'package:rubenfy/results/results.dart';
 import 'package:rubenfy/widgets/button/button.dart';
 
 class Intro extends StatefulWidget {
@@ -137,6 +137,7 @@ class _IntroState extends State<Intro> {
                                 'talking': ratingProvider.talking,
                                 'comments': ratingProvider.comments,
                               });
+                              Navigator.pushNamed(context, '/results');
                             },
                         ),
                   ),
