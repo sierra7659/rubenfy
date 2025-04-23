@@ -62,7 +62,7 @@ class _IntroState extends State<Intro> {
               ],
               expandedHeight: 100,
               floating: true,
-              pinned: false,
+              pinned: true,
               flexibleSpace: FlexibleSpaceBar(
                 background: Flexible(
                   child: Container(
