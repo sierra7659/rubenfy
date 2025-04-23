@@ -1,26 +1,50 @@
-name: Gh-Pages
+name: Deploy Flutter Web to GitHub Pages
 
 on:
   push:
     branches: [ master ]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Install Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
 
-      - name: Check Flutter build manually
-        run: flutter build web
+      - name: Install dependencies
+        run: flutter pub get
 
-      - name: Build and Deploy to GitHub Pages
-        uses: bluefireteam/flutter-gh-pages@v9
+      - name: Build Flutter Web
+        run: flutter build web --base-href "/rubenfy/"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          baseHref: /rubenfy/
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
