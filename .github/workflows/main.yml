@@ -25,3 +25,5 @@ jobs:
 
       - name: Build and Deploy
         uses: bluefireteam/flutter-gh-pages@v9
+        with:
+          baseHref: /rubenfy/
