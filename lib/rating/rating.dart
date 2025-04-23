@@ -45,7 +45,7 @@ class _RatingState extends State<Rating> {
                       children: [
                         Text('${index + 1}', style: const TextStyle(fontSize: 16, color: Colors.black)),
                         IconRating(
-                          imgSrc: 'assets/images/ru_rated_${index + 1}.png',
+                          imgSrc: 'images/ru_rated_${index + 1}.png',
                           isDisabled: isDisabledList[index],
                         ),
                       ],

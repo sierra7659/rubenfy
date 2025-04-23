@@ -53,7 +53,7 @@ class _IntroState extends State<Intro> {
                 AnimatedCrossFade(
                     firstChild: Flexible(
                         child:
-                        Image.asset('assets/images/corollardo.png', width: 100)),
+                        Image.asset('images/corollardo.png', width: 100)),
                     secondChild: Text(''),
                     crossFadeState: innerBoxIsScrolled
                         ? CrossFadeState.showFirst
@@ -103,7 +103,7 @@ class _IntroState extends State<Intro> {
                         width: 200, child: Character(isTalking: true)),
                   ),
                   Flexible(
-                      child: Image.asset('assets/images/corollardo.png', width: 200))
+                      child: Image.asset('images/corollardo.png', width: 200))
                 ],
               ),
               const SizedBox(height: 20),

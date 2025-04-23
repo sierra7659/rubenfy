@@ -8,15 +8,15 @@ class RatingsResults extends StatelessWidget {
 
   _getImage(int rateValue) {
     if (rateValue == 1) {
-      return 'assets/images/ru_rated_1.png';
+      return 'images/ru_rated_1.png';
     } else if (rateValue == 2) {
-      return 'assets/images/ru_rated_2.png';
+      return 'images/ru_rated_2.png';
     } else if (rateValue == 3) {
-      return 'assets/images/ru_rated_3.png';
+      return 'images/ru_rated_3.png';
     } else if (rateValue == 4) {
-      return 'assets/images/ru_rated_4.png';
+      return 'images/ru_rated_4.png';
     } else {
-      return 'assets/images/ru_rated_5.png';
+      return 'images/ru_rated_5.png';
     }
   }
 
