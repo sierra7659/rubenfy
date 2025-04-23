@@ -73,14 +73,14 @@ class _IntroState extends State<Intro> {
                     ),
                     child: const Column(
                       children: [
-                        Text('Bienvenido a Rubenfy!',
+                        Text('¡Bienvenido a Rubenfy!',
                             style: TextStyle(
                                 fontSize: 24,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold)),
                         Flexible(
                           child: Text(
-                              'Califica como esta siendo el viaje, o como ha sido!',
+                              '¡Califica como esta siendo el viaje, o como ha sido!',
                               style:
                               TextStyle(fontSize: 20, color: Colors.black)),
                         ),
