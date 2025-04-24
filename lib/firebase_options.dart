@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
@@ -42,13 +43,14 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD-2gcp4uETAis356x2jKuxHcf84fE8Efs',
-    appId: '1:875522173967:web:af6e6efd57307a18d9c77a',
-    messagingSenderId: '875522173967',
-    projectId: 'rubenfy-ca7b3',
-    authDomain: 'rubenfy-ca7b3.firebaseapp.com',
-    storageBucket: 'rubenfy-ca7b3.firebasestorage.app',
-    measurementId: 'G-QKYBHJEKD5',
+  static FirebaseOptions web = FirebaseOptions(
+    apiKey: dotenv.env['API_KEY']!,
+    authDomain: dotenv.env['AUTH_DOMAIN'],
+    projectId: dotenv.env['PROJECT_ID']!,
+    storageBucket: dotenv.env['STORAGE_BUCKET'],
+    messagingSenderId: dotenv.env['MESSAGING_SENDER_ID']!,
+    appId: dotenv.env['APP_ID']!,
+    measurementId: dotenv.env['MEASUREMENT_ID'],
   );
+
 }
