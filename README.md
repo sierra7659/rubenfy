@@ -1,3 +1,0 @@
-# rubenfy
-
-Rating app
