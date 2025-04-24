@@ -43,7 +43,7 @@ class _RatingState extends State<Rating> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text('${index + 1}', style: const TextStyle(fontSize: 16, color: Colors.black)),
+                        Text('${index + 1}', style: const TextStyle(fontSize: 26, color: Colors.black)),
                         IconRating(
                           imgSrc: 'images/ru_rated_${index + 1}.png',
                           isDisabled: isDisabledList[index],

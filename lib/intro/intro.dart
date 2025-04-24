@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rubenfy/character/character.dart';
 import 'package:rubenfy/comments/comments.dart';
@@ -26,75 +27,41 @@ class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return [
-            SliverAppBar(
-              backgroundColor: Colors.black,
-              leading: AnimatedCrossFade(
-                duration: Duration(milliseconds: 200),
-                firstChild: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Character(isTalking: false),
-                ),
-                crossFadeState: innerBoxIsScrolled
-                    ? CrossFadeState.showFirst
-                    : CrossFadeState.showSecond,
-                secondChild: Container(),
-              ),
-              title: AnimatedCrossFade(
-                  firstChild: Text('Rubenfy'),
-                  secondChild: Text(''),
-                  crossFadeState: innerBoxIsScrolled
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
-                  duration: Duration(milliseconds: 200)),
-              actions: [
-                AnimatedCrossFade(
-                    firstChild: Flexible(
-                        child:
-                        Image.asset('images/corollardo.png', width: 100)),
-                    secondChild: Text(''),
-                    crossFadeState: innerBoxIsScrolled
-                        ? CrossFadeState.showFirst
-                        : CrossFadeState.showSecond,
-                    duration: Duration(milliseconds: 200))
-              ],
-              expandedHeight: 100,
-              floating: true,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                background: Flexible(
-                  child: Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: const Column(
-                      children: [
-                        Text('¡Bienvenido a Rubenfy!',
-                            style: TextStyle(
-                                fontSize: 24,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
-                        Flexible(
-                          child: Text(
-                              '¡Califica como esta siendo el viaje, o como ha sido!',
-                              style:
-                              TextStyle(fontSize: 20, color: Colors.black)),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ];
-        },
-        body: SingleChildScrollView(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        title: Text('Rubenfy'),
+        leading: Character(isTalking: false),
+        actions: [
+          Image.asset('images/corollardo.png', width: 100),
+        ],
+      ),
+      body: SingleChildScrollView(
           child: Column(
             children: [
+              Container(
+                color: Colors.transparent,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: const Column(
+                  children: [
+                    Text('¡Bienvenido a Rubenfy!',
+                        style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold)),
+                    Flexible(
+                      child: Text(
+                          '¡Califica como esta siendo el viaje, o como ha sido!',
+                          style:
+                          TextStyle(fontSize: 20, color: Colors.white)),
+                    ),
+                  ],
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -109,7 +76,6 @@ class _IntroState extends State<Intro> {
               const SizedBox(height: 20),
               Ratings(),
               Container(
-                color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 38.0, vertical: 10),
@@ -146,7 +112,6 @@ class _IntroState extends State<Intro> {
             ],
           ),
         ),
-      ),
     );
   }
 }

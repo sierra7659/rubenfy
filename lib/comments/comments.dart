@@ -31,9 +31,9 @@ class Comments extends StatelessWidget {
     final String hintPhrase = randomHints[random.nextInt(randomHints.length)];
     return Column(
       children: [
-        Text('Comentarios',
-            style: const TextStyle(
-                fontSize: 24, color: Colors.black, fontWeight: FontWeight.w600)),
+        const Text('Comentarios',
+            style: TextStyle(
+                fontSize: 24, color: Colors.white, fontWeight: FontWeight.w600)),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: TextField(
@@ -44,18 +44,18 @@ class Comments extends StatelessWidget {
               hintStyle: const TextStyle(color: Colors.grey),
               hintText: hintPhrase,
               filled: true,
-              focusColor: Colors.black,
+              focusColor: Colors.white,
               enabledBorder: const OutlineInputBorder(
                 borderSide:
-                BorderSide(color: Colors.black, width: 3),
+                BorderSide(color: Colors.white, width: 3),
               ),
               focusedBorder: const OutlineInputBorder(
                 borderSide:
-                BorderSide(color: Colors.black, width: 3),
+                BorderSide(color: Colors.white, width: 3),
               ),
               border: const OutlineInputBorder(
                 borderSide:
-                BorderSide(color: Colors.black, width: 3),
+                BorderSide(color: Colors.white, width: 3),
               ),
             ),
             maxLines: 3,
